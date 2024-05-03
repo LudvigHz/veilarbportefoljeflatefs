@@ -142,7 +142,7 @@ describe('Veiledergrupper', () => {
     it('Veileder har byttet enhet', () => {
         // Vel ei veiledergruppe, få opp modal med ein gong fordi det er noko i lista brukaren må ta stilling til
         cy.getByTestId(`veiledergruppe-rad_${kebabCase(eksisterendeGruppenavn)}`).click({force: true});
-        cy.get('.veiledergruppe_modal_rediger-veiledergruppe').should('be.visible');
+        cy.getByTestId('veiledergruppe_modal_rediger-veiledergruppe').should('be.visible');
 
         // Vi kan sjå feilmelding
         cy.getByTestId('veiledergruppe_modal_alertstripe')
@@ -151,6 +151,6 @@ describe('Veiledergrupper', () => {
 
         // Vi avbryt redigering, modalen lukkar seg
         cy.getByTestId('veiledergruppe_modal_avbryt-knapp').click();
-        cy.get('.veiledergruppe_modal_rediger-veiledergruppe').should('not.exist');
+        cy.getByTestId('veiledergruppe_modal_rediger-veiledergruppe').should('not.exist');
     });
 });

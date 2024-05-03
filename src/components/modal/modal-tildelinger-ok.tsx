@@ -17,7 +17,7 @@ export function TildelingerOk({fnr, isOpen, onRequestClose}: Props) {
             isOpen={isOpen}
             onClose={onRequestClose}
             type={VarselModalType.SUKSESS}
-            dataTestClass="modal-suksess_tildel-veileder" /* Denne utgåva av modal har ingen data-testid-prop, difor brukar vi klassenamn */
+            data-testid="modal-suksess_tildel-veileder"
         >
             <BodyShort size="small">Følgende bruker(e) ble tildelt veileder:</BodyShort>
             <FnrList listeMedFnr={fnr} />

@@ -32,6 +32,7 @@ interface VeilederModalProps {
     modalTittel: string;
     lagreKnappeTekst: string;
     className?: string;
+    dataTestid?: string;
 }
 
 interface VeiledergruppeErrors {
@@ -47,7 +48,8 @@ export function VeiledergruppeModal({
     isOpen,
     modalTittel,
     lagreKnappeTekst,
-    className
+    className,
+    dataTestid
 }: VeilederModalProps) {
     const [filterValg, setFilterValg] = useState<FiltervalgModell>(initialState);
     const [gruppeNavn, setGruppeNavn] = useState<string>('');
@@ -214,6 +216,7 @@ export function VeiledergruppeModal({
                         closeOnBackdropClick={true}
                         className={classNames('veiledergruppe-modal', className)}
                         width="medium"
+                        data-testid={dataTestid}
                     >
                         <Modal.Header>
                             <Heading size="medium" level="1">

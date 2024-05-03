@@ -50,24 +50,24 @@ const ArbeidslisteModal = ({isOpen, valgteBrukere}: ArbeidslisteModalProps) => {
                             isOpen={isModalOpen}
                             onClose={lukkModal}
                             type={VarselModalType.ADVARSEL}
-                            dataTestClass="modal_varsel_fjern-fra-arbeidsliste"
+                            dataTestId="modal_varsel_fjern-fra-arbeidsliste"
                         >
                             <div className="fjern-arbeidsliste">
                                 <BodyShort size="small">
-                                    {`Du har valgt å fjerne ${brukereSomSkalFjernes.length} ${
-                                        brukereSomSkalFjernes.length === 1 ? 'bruker' : 'brukere'
-                                    } fra arbeidslisten.`}
+                                    {`Du har valgt å fjerne ${brukereSomSkalFjernes.length} 
+                                    ${brukereSomSkalFjernes.length === 1 ? 'bruker' : 'brukere'} fra arbeidslisten.`}
                                 </BodyShort>
                                 <FjernFraArbeidslisteForm valgteBrukere={brukereSomSkalFjernes} lukkModal={lukkModal} />
                             </div>
                         </VarselModal>
                     ) : (
                         <Modal
-                            className="arbeidsliste-modal testid_legg-i-arbeidsliste_modal"
+                            className="arbeidsliste-modal"
                             open={isModalOpen}
                             onClose={lukkModal}
                             closeOnBackdropClick={true}
                             header={{heading: 'Legg i arbeidsliste'}}
+                            data-testid="legg-i-arbeidsliste_modal"
                         >
                             <Modal.Body>
                                 <div className="modal-innhold">

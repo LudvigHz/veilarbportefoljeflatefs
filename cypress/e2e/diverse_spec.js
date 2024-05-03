@@ -159,18 +159,18 @@ describe('Diverse', () => {
 
         // Vel den øvste veiledaren i lista
         cy.checkbox('tildel-veileder_valg_0');
-        cy.getByTestId('modal-suksess_tildel-veileder').should('not.exist');
+        cy.getByTestId('modal-suksess_tildel-veileder').should('not.be.visible');
 
         // Bekreft med knappetrykk
         cy.getByTestId(`tildel-veileder_velg-knapp`).should('be.visible').click();
 
         // Få opp bekreftelsesmodal med suksess-beskjed og lukk den
         cy.wait(500);
-        cy.get('.modal-suksess_tildel-veileder').should('be.visible')
+        cy.getByTestId('modal-suksess_tildel-veileder').should('be.visible')
             .within( () => {
                 cy.get('button').last().click();
             });
-        cy.getByTestId('modal-suksess_tildel-veileder').should('not.exist');
+        cy.getByTestId('modal-suksess_tildel-veileder').should('not.be.visible');
 
         // Går tilbake til startsida (nullstiller til neste test)
         cy.gaTilOversikt('enhetens-oversikt');

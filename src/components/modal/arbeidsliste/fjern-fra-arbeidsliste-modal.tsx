@@ -22,7 +22,7 @@ function FjernArbeidslisteModal({isOpen, valgteBrukere, lukkModal, bruker}: Fjer
             isOpen={isOpen}
             onClose={lukkModal}
             type={VarselModalType.ADVARSEL}
-            dataTestClass="modal_varsel_fjern-fra-arbeidsliste"
+            dataTestId="modal_varsel_fjern-fra-arbeidsliste"
         >
             <div className="fjern-arbeidsliste">
                 <BodyShort size="small">{`Du har valgt å fjerne ${navn} fra arbeidslisten.`}</BodyShort>

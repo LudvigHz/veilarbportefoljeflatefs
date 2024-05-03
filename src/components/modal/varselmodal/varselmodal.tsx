@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import './varsel-modal.css';
 import {ErrorFilled, SuccessFilled, WarningFilled} from '@navikt/ds-icons';
-import {Heading, Modal} from '@navikt/ds-react';
+import {Heading, Modal, ModalProps} from '@navikt/ds-react';
 
 export enum VarselModalType {
     ADVARSEL,
@@ -10,14 +10,14 @@ export enum VarselModalType {
     FEIL
 }
 
-interface VarselModalProps {
+interface VarselModalProps extends ModalProps {
     isOpen: boolean;
     onClose: () => void;
     overskrift: string;
     className?: string;
     portalClassName?: string;
     type: VarselModalType;
-    dataTestClass?: string;
+    dataTestId?: string;
 }
 
 export function VarselModal({
@@ -27,15 +27,16 @@ export function VarselModal({
     overskrift,
     children,
     className,
-    dataTestClass,
-    portalClassName
+    portalClassName,
+    dataTestId
 }: React.PropsWithChildren<VarselModalProps>) {
     return (
         <Modal
             open={isOpen}
             onClose={onClose}
-            className={classNames('varsel-modal', portalClassName, dataTestClass)}
+            className={classNames('varsel-modal', portalClassName)}
             closeOnBackdropClick={true}
+            data-testid={dataTestId}
         >
             <Modal.Header className="varsel-modal__header">
                 <div className="varsel-modal__ikon">{getIkon(type)}</div>

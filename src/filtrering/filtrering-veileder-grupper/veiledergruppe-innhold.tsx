@@ -136,7 +136,7 @@ function VeiledergruppeInnhold({lagretFilter, oversiktType}: VeiledergruppeInnho
                     isOpen={visEndreGruppeModal}
                     modalTittel={modalTittel}
                     lagreKnappeTekst="Lagre endringer"
-                    className={`veiledergruppe_modal_${kebabCase(modalTittel)}`}
+                    dataTestid={`veiledergruppe_modal_${kebabCase(modalTittel)}`}
                 />
             )}
         </div>
